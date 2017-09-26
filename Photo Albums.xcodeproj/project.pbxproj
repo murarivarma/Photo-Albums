@@ -14,8 +14,6 @@
 		1E8378831F7A5CFB000B70E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E8378821F7A5CFB000B70E3 /* Assets.xcassets */; };
 		1E8378861F7A5CFB000B70E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E8378841F7A5CFB000B70E3 /* LaunchScreen.storyboard */; };
 		1E8378921F7A5EDC000B70E3 /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8378911F7A5EDC000B70E3 /* AlbumTableViewController.m */; };
-		1E83789D1F7A6074000B70E3 /* Album+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E83789A1F7A6074000B70E3 /* Album+CoreDataClass.m */; };
-		1E83789E1F7A6074000B70E3 /* Album+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E83789C1F7A6074000B70E3 /* Album+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,12 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E83789D1F7A6074000B70E3 /* Album+CoreDataClass.m in Sources */,
 				1E8378781F7A5CFB000B70E3 /* AppDelegate.m in Sources */,
 				1E8378921F7A5EDC000B70E3 /* AlbumTableViewController.m in Sources */,
 				1E8378811F7A5CFB000B70E3 /* Photo_Albums.xcdatamodeld in Sources */,
 				1E8378751F7A5CFB000B70E3 /* main.m in Sources */,
-				1E83789E1F7A6074000B70E3 /* Album+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

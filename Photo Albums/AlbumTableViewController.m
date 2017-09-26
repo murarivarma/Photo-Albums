@@ -22,6 +22,40 @@
 }
 
 - (IBAction)addAlbumBarButtonItemPressed:(UIBarButtonItem *)sender {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Album Name" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = NSLocalizedString(@"Enter Album Name", @"Album Name");
+        [textField addTarget:self action:@selector(alertTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"Cancelled");
+    }];
+    
+    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *albumName = alertController.textFields.firstObject;
+        NSLog(@"added: %@", albumName.text);
+    }];
+    
+    addAction.enabled = NO;
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:addAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)alertTextFieldDidChange:(UITextField *)sender
+{
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    if (alertController)
+    {
+        UITextField *albumName = alertController.textFields.firstObject;
+        UIAlertAction *addAction = alertController.actions.lastObject;
+        addAction.enabled = albumName.text.length > 0;
+    }
 }
 
 - (void)viewDidLoad {
