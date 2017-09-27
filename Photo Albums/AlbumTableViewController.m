@@ -7,8 +7,7 @@
 //
 
 #import "AlbumTableViewController.h"
-#import "Album+CoreDataClass.h"
-#import "AppDelegate.h"
+#import "CoreDataHelper.h"
 
 @interface AlbumTableViewController ()
 
@@ -32,6 +31,27 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Album"];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
+    
+//    AppDelegate *delegate =  (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext *context = delegate.persistentContainer.viewContext;
+    
+    NSError *error = nil;
+    
+    NSArray *fetchedAlbums = [[CoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    self.albums = [fetchedAlbums mutableCopy];
+    [self.tableView reloadData];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,9 +107,9 @@
     
     //id delegate = [[UIApplication sharedApplication] delegate];
     //NSManagedObjectContext *context = [delegate managedObjectContext];
-    
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = delegate.persistentContainer.viewContext;
+//    
+//    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [CoreDataHelper managedObjectContext];
     
     Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
     album.name = name;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E32790D1F7B782A00725B36 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E32790C1F7B782A00725B36 /* CoreDataHelper.m */; };
 		1E8378751F7A5CFB000B70E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8378741F7A5CFB000B70E3 /* main.m */; };
 		1E8378781F7A5CFB000B70E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8378771F7A5CFB000B70E3 /* AppDelegate.m */; };
 		1E83787E1F7A5CFB000B70E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E83787C1F7A5CFB000B70E3 /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E32790B1F7B782A00725B36 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		1E32790C1F7B782A00725B36 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		1E8378701F7A5CFB000B70E3 /* Photo Albums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Albums.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E8378741F7A5CFB000B70E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1E8378761F7A5CFB000B70E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				1E83789A1F7A6074000B70E3 /* Album+CoreDataClass.m */,
 				1E83789B1F7A6074000B70E3 /* Album+CoreDataProperties.h */,
 				1E83789C1F7A6074000B70E3 /* Album+CoreDataProperties.m */,
+				1E32790B1F7B782A00725B36 /* CoreDataHelper.h */,
+				1E32790C1F7B782A00725B36 /* CoreDataHelper.m */,
 				1E8378761F7A5CFB000B70E3 /* AppDelegate.h */,
 				1E8378771F7A5CFB000B70E3 /* AppDelegate.m */,
 				1E8378901F7A5EDC000B70E3 /* AlbumTableViewController.h */,
@@ -165,6 +170,7 @@
 				1E8378781F7A5CFB000B70E3 /* AppDelegate.m in Sources */,
 				1E8378921F7A5EDC000B70E3 /* AlbumTableViewController.m in Sources */,
 				1E8378811F7A5CFB000B70E3 /* Photo_Albums.xcdatamodeld in Sources */,
+				1E32790D1F7B782A00725B36 /* CoreDataHelper.m in Sources */,
 				1E8378751F7A5CFB000B70E3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +328,7 @@
 				1E83788C1F7A5CFB000B70E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
