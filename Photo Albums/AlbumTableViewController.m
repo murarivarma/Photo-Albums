@@ -7,6 +7,8 @@
 //
 
 #import "AlbumTableViewController.h"
+#import "Album+CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface AlbumTableViewController ()
 
@@ -16,10 +18,28 @@
 
 -(NSMutableArray *)albums {
     if(!_albums) {
-        self.albums = [[NSMutableArray alloc] init];
+        _albums = [[NSMutableArray alloc] init];
     }
     return _albums;
 }
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - add Album Bar Button
 
 - (IBAction)addAlbumBarButtonItemPressed:(UIBarButtonItem *)sender {
     
@@ -36,7 +56,11 @@
     
     UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *albumName = alertController.textFields.firstObject;
-        NSLog(@"added: %@", albumName.text);
+        
+        [self.albums addObject:[self albumWithName:albumName.text]];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.albums count] -1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        
+       // NSLog(@"added: %@", albumName.text);
     }];
     
     addAction.enabled = NO;
@@ -57,20 +81,26 @@
         addAction.enabled = albumName.text.length > 0;
     }
 }
+#pragma mark - Helper Methods
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(Album *)albumWithName:(NSString *)name {
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //id delegate = [[UIApplication sharedApplication] delegate];
+    //NSManagedObjectContext *context = [delegate managedObjectContext];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = delegate.persistentContainer.viewContext;
+    
+    Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
+    album.name = name;
+    album.date = [NSDate date];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+    
+    return album;
 }
 
 #pragma mark - Table view data source
@@ -85,15 +115,17 @@
     return [self.albums count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Album *selectedAlbum = self.albums[indexPath.row];
+    cell.textLabel.text = selectedAlbum.name;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
