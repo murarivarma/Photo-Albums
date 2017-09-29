@@ -8,6 +8,9 @@
 
 #import "PhotosCollectionViewController.h"
 #import "PhotoCollectionViewCell.h"
+#import "Photo+CoreDataClass.h"
+#import "PictureDataTransformer.h"
+#import "CoreDataHelper.h"
 
 @interface PhotosCollectionViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -71,6 +74,23 @@ static NSString * const reuseIdentifier = @"Cell";
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
+#pragma mark - Helper Methods
+
+-(Photo *)photoFromImage:(UIImage *)image {
+    
+    Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:[CoreDataHelper managedObjectContext]];
+    photo.date = [NSDate date];
+    photo.image = image;
+    photo.albumBook = self.album;
+    
+    NSError *error = nil;
+    
+    if(![[photo managedObjectContext] save:&error]) {
+        NSAssert(NO, @"Error saving photo context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+    return photo;
+}
+
 #pragma mark <UIImagePickerControllerDelegate>
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -78,7 +98,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UIImage *image = info[UIImagePickerControllerEditedImage];
     if(!image) image = info[UIImagePickerControllerOriginalImage];
     
-    [self.photos addObject:image];
+    [self.photos addObject:[self photoFromImage:image]];
     [self.collectionView reloadData];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -105,8 +125,13 @@ static NSString * const reuseIdentifier = @"Cell";
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
     
     // Configure the cell
+    
+    Photo *photo = self.photos[indexPath.row];
+    
     cell.backgroundColor = [UIColor blackColor];
-    cell.imageView.image = [UIImage imageNamed:@"ntr.jpg"];
+    
+    NSLog(@"%@", self.photos[indexPath.row]);
+    cell.imageView.image = photo.image;//[UIImage imageNamed:@"ntr.jpg"];
     
     return cell;
 }

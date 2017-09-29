@@ -101,7 +101,7 @@
         addAction.enabled = albumName.text.length > 0;
     }
 }
-#pragma mark - Helper Methods
+#pragma mark - Helper Method - Data Save in CoreData
 
 -(Album *)albumWithName:(NSString *)name {
     
@@ -117,7 +117,7 @@
     
     NSError *error = nil;
     if (![context save:&error]) {
-        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+        NSAssert(NO, @"Error saving album context: %@\n%@", [error localizedDescription], [error userInfo]);
     }
     
     return album;
