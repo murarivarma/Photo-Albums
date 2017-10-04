@@ -42,6 +42,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    NSSet *unorderedPhotos = self.album.photos;
+    NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    
+    NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[dateDescriptor]];
+    self.photos = [sortedPhotos mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,12 +131,12 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Configure the cell
     
-    Photo *photo = self.photos[indexPath.row];
+    Photo *photoObj = (Photo *)self.photos[indexPath.row];
     
     cell.backgroundColor = [UIColor blackColor];
     
-    NSLog(@"%@", self.photos[indexPath.row]);
-    cell.imageView.image = photo.image;//[UIImage imageNamed:@"ntr.jpg"];
+    NSLog(@"%@", photoObj.image);
+    cell.imageView.image = (UIImage *)photoObj.image; //self.photos[indexPath.row] ;//[UIImage imageNamed:@"ntr.jpg"];
     
     return cell;
 }
