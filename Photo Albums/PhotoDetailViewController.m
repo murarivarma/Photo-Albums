@@ -55,7 +55,7 @@
     
     NSError *error = nil;
     
-    [[self.photo managedObjectContext] save:&error];
+    [[self.photo managedObjectContext] save:&error];  //This Code is needed only when testing in simulator, when testing in a real device, NOT NEEDED to explicitly call save - CoreData knows how to auto save in the background.
     
     if(error) {
         NSAssert(NO, @"Error deleting photo context: %@\n%@", [error localizedDescription], [error userInfo]);
