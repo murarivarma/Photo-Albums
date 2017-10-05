@@ -12,6 +12,7 @@
 		1E3279131F7BA46200725B36 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3279121F7BA46200725B36 /* PhotoCollectionViewCell.m */; };
 		1E3279151F7BA82C00725B36 /* ntr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E3279141F7BA82C00725B36 /* ntr.jpg */; };
 		1E32792B1F7C1A2B00725B36 /* PictureDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E32792A1F7C1A2B00725B36 /* PictureDataTransformer.m */; };
+		1E6276C21F85F9220076D709 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6276C11F85F9220076D709 /* PhotoDetailViewController.m */; };
 		1E8378751F7A5CFB000B70E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8378741F7A5CFB000B70E3 /* main.m */; };
 		1E8378781F7A5CFB000B70E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8378771F7A5CFB000B70E3 /* AppDelegate.m */; };
 		1E83787E1F7A5CFB000B70E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E83787C1F7A5CFB000B70E3 /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 		1E3279241F7C0BC000725B36 /* Photo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Photo+CoreDataProperties.m"; path = "../Photo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		1E3279291F7C1A2B00725B36 /* PictureDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureDataTransformer.h; sourceTree = "<group>"; };
 		1E32792A1F7C1A2B00725B36 /* PictureDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureDataTransformer.m; sourceTree = "<group>"; };
+		1E6276C01F85F9220076D709 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		1E6276C11F85F9220076D709 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		1E8378701F7A5CFB000B70E3 /* Photo Albums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Albums.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E8378741F7A5CFB000B70E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1E8378761F7A5CFB000B70E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				1E32790C1F7B782A00725B36 /* CoreDataHelper.m */,
 				1E8378761F7A5CFB000B70E3 /* AppDelegate.h */,
 				1E8378771F7A5CFB000B70E3 /* AppDelegate.m */,
+				1E6276C01F85F9220076D709 /* PhotoDetailViewController.h */,
+				1E6276C11F85F9220076D709 /* PhotoDetailViewController.m */,
 				1E3279111F7BA46200725B36 /* PhotoCollectionViewCell.h */,
 				1E3279121F7BA46200725B36 /* PhotoCollectionViewCell.m */,
 				1E32790E1F7B91CF00725B36 /* PhotosCollectionViewController.h */,
@@ -206,6 +211,7 @@
 				1E8378781F7A5CFB000B70E3 /* AppDelegate.m in Sources */,
 				1E8378921F7A5EDC000B70E3 /* AlbumTableViewController.m in Sources */,
 				1E8378811F7A5CFB000B70E3 /* Photo_Albums.xcdatamodeld in Sources */,
+				1E6276C21F85F9220076D709 /* PhotoDetailViewController.m in Sources */,
 				1E32792B1F7C1A2B00725B36 /* PictureDataTransformer.m in Sources */,
 				1E32790D1F7B782A00725B36 /* CoreDataHelper.m in Sources */,
 				1E3279101F7B91CF00725B36 /* PhotosCollectionViewController.m in Sources */,

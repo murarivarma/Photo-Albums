@@ -69,6 +69,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="181" height="181"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
+                                <connections>
+                                    <segue destination="BBQ-Z5-0Um" kind="show" identifier="Detail Seque" id="w3V-XE-Hbh"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -87,6 +90,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayj-jH-tO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="556" y="167.76611694152925"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="llE-UG-PCX">
+            <objects>
+                <viewController id="BBQ-Z5-0Um" customClass="PhotoDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qyy-1e-Jjf"/>
+                        <viewControllerLayoutGuide type="bottom" id="i0Z-we-x3W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x7M-Aa-eJ6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4P-Kv-HYZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="512"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsb-g5-zXG">
+                                <rect key="frame" x="6" y="617" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Filter"/>
+                                <connections>
+                                    <action selector="addFilterButtonPressed:" destination="BBQ-Z5-0Um" eventType="touchUpInside" id="XKA-7p-Wd2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLB-So-W7d">
+                                <rect key="frame" x="314" y="617" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="BBQ-Z5-0Um" eventType="touchUpInside" id="8du-2d-dbF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="O4P-Kv-HYZ" id="F8A-tF-5qa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VFt-Rb-EPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357.5999999999999" y="167.76611694152925"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hRs-he-Xn0">

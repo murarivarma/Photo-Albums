@@ -11,6 +11,7 @@
 #import "Photo+CoreDataClass.h"
 #import "PictureDataTransformer.h"
 #import "CoreDataHelper.h"
+#import "PhotoDetailViewController.h"
 
 @interface PhotosCollectionViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -42,11 +43,20 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    
     NSSet *unorderedPhotos = self.album.photos;
     NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
     
     NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[dateDescriptor]];
     self.photos = [sortedPhotos mutableCopy];
+    
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,15 +64,30 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"Detail Seque"]) {
+        
+        if([segue.destinationViewController isKindOfClass:[PhotoDetailViewController class]]){
+         
+            PhotoDetailViewController *targetViewController = segue.destinationViewController;
+            NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] lastObject];
+            
+            Photo *selectedPhoto = self.photos[indexPath.row];
+            targetViewController.photo = selectedPhoto;
+            
+        }
+        
+    }
+    
 }
-*/
+
 
 - (IBAction)cameraBarButtonItemPressed:(UIBarButtonItem *)sender {
     
@@ -135,7 +160,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     cell.backgroundColor = [UIColor blackColor];
     
-    NSLog(@"%@", photoObj.image);
+    //NSLog(@"%@", photoObj.image);
     cell.imageView.image = (UIImage *)photoObj.image; //self.photos[indexPath.row] ;//[UIImage imageNamed:@"ntr.jpg"];
     
     return cell;
