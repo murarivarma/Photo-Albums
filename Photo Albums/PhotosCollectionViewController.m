@@ -159,7 +159,7 @@ static NSString * const reuseIdentifier = @"Cell";
     Photo *photoObj = (Photo *)self.photos[indexPath.row];
     
     cell.backgroundColor = [UIColor blackColor];
-    cell.imageView.image = (UIImage *)photoObj.image; //self.photos[indexPath.row] ;//[UIImage imageNamed:@"ntr.jpg"];
+    cell.imageView.image = (UIImage *)photoObj.image; //self.photos[indexPath.row] ;//[UIImage imageNamed:@"abc.jpg"];
     
     return cell;
 }

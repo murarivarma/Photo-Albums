@@ -81,7 +81,6 @@
         [self.albums addObject:[self albumWithName:albumName.text]];
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.albums count] -1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
         
-       // NSLog(@"added: %@", albumName.text);
     }];
     
     addAction.enabled = NO;

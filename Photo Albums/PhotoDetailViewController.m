@@ -59,7 +59,6 @@
     
     [[self.photo managedObjectContext] deleteObject:self.photo];
     
-    //NSLog(@"%@ %@", self.photo, [self.photo managedObjectContext]);
     
     NSError *error = nil;
     

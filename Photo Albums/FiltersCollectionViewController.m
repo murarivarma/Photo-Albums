@@ -132,7 +132,7 @@ static NSString * const reuseIdentifier = @"FilterPhotoCell";
     });
     
     
-    //cell.imageView.image = nil;// [UIImage imageNamed:@"ntr.jpg"];//(UIImage *)self.photo.image;
+    //cell.imageView.image = nil;// [UIImage imageNamed:@"abc.jpg"];//(UIImage *)self.photo.image;
     
     return cell;
 }
